@@ -5,4 +5,7 @@
     <string name="no_files">No files.</string>
     <string name="bytes">bytes</string>
 
+    <!-- コマンド -->
+    <string name="cmd_delete">Delete</string>
+
 </resources>

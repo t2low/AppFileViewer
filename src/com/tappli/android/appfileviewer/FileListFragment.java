@@ -14,6 +14,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.tappli.android.appfileviewer.cmd.CmdDelete;
+import com.tappli.android.appfileviewer.cmd.CommandListDialog;
+
 public class FileListFragment extends Fragment {
 	private static final String ARG_DIR = "dir";
 
@@ -90,10 +93,13 @@ public class FileListFragment extends Fragment {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 			File file = adapter.getItem(position);
-			if (!file.isDirectory()) {
+			if (file.isDirectory()) {
+				showNextDir(file);
 				return;
 			}
-			showNextDir(file);
+
+			CommandListDialog dialog = CommandListDialog.newInstance(FileListFragment.this, file, new CmdDelete());
+			dialog.show(getFragmentManager(), "dialog");
 		}
 	};
 }
