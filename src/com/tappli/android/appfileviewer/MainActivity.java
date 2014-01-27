@@ -34,7 +34,12 @@ public class MainActivity extends Activity {
 		listView.setAdapter(adapter);
 		listView.setOnItemClickListener(onItemClickListener);
 
-		setTitle(rootDir.getAbsolutePath());
+		showCurrentPath(rootDir);
+	}
+
+	private void showCurrentPath(File file) {
+		TextView pathView = (TextView) findViewById(R.id.curr_path);
+		pathView.setText(file.getAbsolutePath());
 	}
 
 	private File getRootDir(Intent intent) {

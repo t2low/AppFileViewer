@@ -3,5 +3,7 @@
 
     <color name="color_for_directory">#6495ed</color>
     <color name="color_for_file">#f5f5f5</color>
+    <color name="curr_path_text">#eee</color>
+    <color name="curr_path_bg">#222</color>
 
 </resources>
