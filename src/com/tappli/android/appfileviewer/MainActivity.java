@@ -39,23 +39,27 @@ public class MainActivity extends Activity {
 
 	private File getRootDir(Intent intent) {
 		if (intent == null) {
-			return getFilesDir().getParentFile();
+			return getAppRoot();
 		}
 
 		String dir = intent.getStringExtra(ARG_DIR);
 		if (TextUtils.isEmpty(dir)) {
-			return getFilesDir().getParentFile();
+			return getAppRoot();
 		}
 
 		File file = new File(dir);
 		if (!file.exists()) {
-			return getFilesDir().getParentFile();
+			return getAppRoot();
 		}
 		if (!file.isDirectory()) {
-			return getFilesDir().getParentFile();
+			return getAppRoot();
 		}
 
 		return file;
+	}
+
+	private File getAppRoot() {
+		return getFilesDir().getParentFile();
 	}
 
 	private OnItemClickListener onItemClickListener = new OnItemClickListener() {
